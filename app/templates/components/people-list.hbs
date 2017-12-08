@@ -1,0 +1,30 @@
+{{!-- criação da tela com os parametros informados em sua chamada (title e people) --}}
+<h2>{{title}}</h2>
+
+<table>
+    <thead>
+        <tr>
+            <th>Nome</th>
+            <th>Sobrenome</th>
+            <th>Data de Início da Amizade</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+         {{#each model as |friend|}}
+            <tr>
+                <td>{{ friend.name }}</td>
+                <td>{{ friend.lastname }}</td>
+                <td>{{ friend.friendsSince }}</td>
+                <td>
+                    {{#link-to "friends.view" friend.id class="btn"}}
+                        Detalhes
+                    {{/link-to}}
+                    {{#link-to "friends.update" friend.id class="btn"}}
+                        Atualizar
+                    {{/link-to}}
+                </td>
+            </tr>
+          {{/each}}
+    </tbody>
+</table>

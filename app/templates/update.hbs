@@ -1,0 +1,30 @@
+<h3>Atualizar Dados do Amigo</h3>
+
+{{#link-to "home"}}
+    Voltar
+{{/link-to}}
+<hr>
+
+<form>
+    {{ input value=model.name placeholder="Nome do amigo" min="3" }}
+    {{ input value=model.lastname placeholder="Sobrenome do amigo"  min="3"}}
+    {{pikaday-input value=model.friendsSince  format="YYYY-MM-DD" readonly="readonly" placeholder="Data" onSelection=(action  (mut model.friendsSince))}}
+
+    <hr>
+    <button {{action "toggleModal"}} type="submit">Salvar</button>
+</form>
+
+
+{{#if isShowingModal}}
+  {{#modal-dialog
+    onClose="toggleModal"
+    targetAttachment="center"
+    translucentOverlay=true
+  }}
+    <h4>Deseja realmente salvar?</h4>
+
+    <button {{action "save" model }}>Sim</button>
+    <button {{action "toggleModal"}}>Não</button>
+
+  {{/modal-dialog}}
+{{/if}}
