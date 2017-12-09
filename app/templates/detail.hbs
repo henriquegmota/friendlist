@@ -1,13 +1,15 @@
-<h3>Detalhes do Amigo</h3>
-
-{{#each model as |friend|}}
-
-   <p><b>Nome:</b> {{ friend.name }}</p>
-   <p><b>Sobrenome:</b> {{ friend.lastname }}</p>
-   <p><b>Data de Início da Amizade:</b> {{ friend.friendsSince }}</p>
 
 
-{{/each}}
-{{#link-to "home"}}
-   Voltar
-{{/link-to}}
+<div class="form-style-5">
+  <form>
+    <fieldset>
+      <h3>Detalhes do Amigo</h3>
+      {{#each model as |friend|}}
+         <p><b>Nome:</b> {{ friend.name }}</p>
+         <p><b>Sobrenome:</b> {{ friend.lastname }}</p>
+         <p><b>Data de Início da Amizade:</b> {{ friend.friendsSince }}</p>
+      {{/each}}
+    </fieldset>
+    <button {{action "goHome"}}>Voltar</button>
+  </form>
+</div>

@@ -5,6 +5,9 @@ export default Controller.extend({
   actions: {
     toggleModal: function() {
       this.toggleProperty('isShowingModal');
+    },
+    goHome: function() {
+      this.transitionToRoute('home');
     }
   }
 });

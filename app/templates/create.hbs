@@ -1,19 +1,17 @@
-<h3>Novo Amigo</h3>
-
-{{#link-to "home"}}
-    Voltar
-{{/link-to}}
 <hr>
 
-<form>
-    {{ input value=model.name placeholder="Nome do amigo" min="3" }}
-     <div>{{validationErrors.name}}</div>
-    {{ input value=model.lastname placeholder="Sobrenome do amigo"  min="3"}}
-     <div>{{validationErrors.lastname}}</div>
-     {{pikaday-input value=model.friendsSince  format="YYYY-MM-DD" readonly="readonly" placeholder="Data" onSelection=(action  (mut model.friendsSince))}}
-    <hr>
+<div class="form-style-5">
+  <form>
+    <fieldset>
+      <legend><span class="number">1</span>Adicionar um amigo</legend>
+      {{ input value=model.name placeholder="Nome do amigo" min="3" }}
+      {{ input value=model.lastname placeholder="Sobre nome do amigo"  min="3"}}
+      {{pikaday-input value=model.friendsSince  format="YYYY-MM-DD" readonly="readonly" placeholder="Data" onSelection=(action  (mut model.friendsSince))}}
+    </fieldset>
     <button {{ action "save" model on="click"}} {{action "toggleModal"}}>Salvar</button>
-</form>
+    <button {{action "goHome"}}>Voltar</button>
+  </form>
+</div>
 
 {{#if isShowingModal}}
   {{#modal-dialog

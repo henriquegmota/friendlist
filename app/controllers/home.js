@@ -5,6 +5,12 @@ export default Controller.extend({
   queryParams: {
       name: 'nome'
   },
+  actions: {
+
+        goCreate: function() {
+          this.transitionToRoute('create');
+        }
+    },
   name: null,
   filteredFriends: Ember.computed('name', 'model', function() {
     let name = this.get('name');
@@ -16,4 +22,6 @@ export default Controller.extend({
       return friends;
     }
   })
+
+
 });

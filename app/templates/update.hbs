@@ -1,19 +1,16 @@
-<h3>Atualizar Dados do Amigo</h3>
 
-{{#link-to "home"}}
-    Voltar
-{{/link-to}}
-<hr>
-
-<form>
-    {{ input value=model.name placeholder="Nome do amigo" min="3" }}
-    {{ input value=model.lastname placeholder="Sobrenome do amigo"  min="3"}}
-    {{pikaday-input value=model.friendsSince  format="YYYY-MM-DD" readonly="readonly" placeholder="Data" onSelection=(action  (mut model.friendsSince))}}
-
-    <hr>
+<div class="form-style-5">
+  <form>
+    <fieldset>
+      <legend><span class="number">1</span>Atualizar amigo</legend>
+      {{ input value=model.name placeholder="Nome do amigo" min="3" }}
+      {{ input value=model.lastname placeholder="Sobrenome do amigo"  min="3"}}
+      {{pikaday-input value=model.friendsSince  format="YYYY-MM-DD" readonly="readonly" placeholder="Data" onSelection=(action  (mut model.friendsSince))}}
+    </fieldset>
     <button {{action "toggleModal"}} type="submit">Salvar</button>
-</form>
-
+    <button {{action "goHome"}}>Voltar</button>
+  </form>
+</div>
 
 {{#if isShowingModal}}
   {{#modal-dialog
@@ -22,9 +19,11 @@
     translucentOverlay=true
   }}
     <h4>Deseja realmente salvar?</h4>
-
-    <button {{action "save" model }}>Sim</button>
-    <button {{action "toggleModal"}}>Não</button>
-
+    <td>
+      <button class="btn-modal margin-right-30" {{action "save" model}}>Sim</button>
+    </td>
+    <td>
+      <button class="btn-modal" {{action "toggleModal"}}>Não</button>
+    </td>
   {{/modal-dialog}}
 {{/if}}
